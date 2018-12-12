@@ -79,13 +79,7 @@ function startbutton1_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-
-% --- Executes during object creation, after setting all properties.
-function startbutton1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to startbutton1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-ROUND;%starts script ROUND
+ROUND;%starts another script called ROUND
 
 
 % --- Executes during object creation, after setting all properties.
