@@ -22,7 +22,7 @@ function varargout = start(varargin)
 
 % Edit the above text to modify the response to help start
 
-% Last Modified by GUIDE v2.5 13-Dec-2018 18:44:52
+% Last Modified by GUIDE v2.5 13-Dec-2018 21:13:42
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -72,15 +72,20 @@ function varargout = start_OutputFcn(hObject, eventdata, handles)
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 
-
-% --- Executes on button press in startbutton1.
+% --- Executes on button press in background.
 function startbutton1_Callback(hObject, eventdata, handles)
-% hObject    handle to startbutton1 (see GCBO)
+% hObject    handle to background (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 % handles    empty - handles not created until after all CreateFcns called
 ROUND;%starts script ROUND
 
+% --- Executes on button press in pushbutton2.
+function pushbutton2_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+rules;%starts RULES
 
 % --- Executes during object creation, after setting all properties.
 function background_CreateFcn(hObject, eventdata, handles)
@@ -92,10 +97,28 @@ function background_CreateFcn(hObject, eventdata, handles)
 axes(hObject)
 imshow('drop.jpg')
 
+% --- Executes during object creation, after setting all properties.
+function playbutton1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to playbutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
 
-% --- Executes on button press in pushbutton2.
-function pushbutton2_Callback(hObject, eventdata, handles)
-% hObject    handle to pushbutton2 (see GCBO)
+% --- Plays music
+[y,Fs]=audioread('Countdown.mp3');
+
+% --- Executes on button press in playbutton1.
+function playbutton1_Callback(hObject, eventdata, handles)
+% hObject    handle to playbutton1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-rules;%starts RULES
+[y,Fs]=audioread('Countdown.mp3');
+sound(y,Fs,16);
+
+% --- Executes on button press in pausebutton1.
+function pausebutton1_Callback(hObject, eventdata, handles)
+% hObject    handle to pausebutton1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+clear sound
+
+
